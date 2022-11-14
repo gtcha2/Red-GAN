@@ -6,7 +6,7 @@ import pickle
 
 def get_training_augmentation_padding(dataset):
     test_transform = [
-        albu.PadIfNeeded(256, 256, cv2.BORDER_CONSTANT, (0, 0, 0)),
+        albu.PadIfNeeded(256, 256, border_mode=cv2.BORDER_CONSTANT, mask_value=(0, 0, 0)),
     ]
 
     if dataset == 'brats':
