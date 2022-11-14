@@ -1,9 +1,16 @@
 import torch.nn as nn
 from torchvision.models.vgg import VGG
-from torchvision.models.vgg import cfgs
+
 from pretrainedmodels.models.torchvision_models import pretrained_settings
 
+from typing import Any, cast, Dict, List, Optional, Union
 
+cfgs: Dict[str, List[Union[str, int]]] = {
+    "A": [64, "M", 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
+    "B": [64, 64, "M", 128, 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
+    "D": [64, 64, "M", 128, 128, "M", 256, 256, 256, "M", 512, 512, 512, "M", 512, 512, 512, "M"],
+    "E": [64, 64, "M", 128, 128, "M", 256, 256, 256, 256, "M", 512, 512, 512, 512, "M", 512, 512, 512, 512, "M"],
+}
 class VGGEncoder(VGG):
 
     def __init__(self, in_channels, config, batch_norm=False, *args, **kwargs):
