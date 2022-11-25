@@ -113,8 +113,8 @@ class Run:
                                                kwargs['activation'], dataset, len(self.classes)).create_model()
 
     def create_folders(self):
-        if not os.path.join(self.root_dir, 'models', self.fold):
-            os.makedirs(self.model_dir)
+        if not os.path.exists(os.path.join(self.root_dir, 'models', self.fold)):
+            os.makedirs(os.path.join(self.root_dir, 'models', self.fold))
 
     def set_paths(self, root):
         if self.dataset == 'brats':
