@@ -266,7 +266,7 @@ class Run:
             loss=self.model_loss,
             metrics=self.metrics,
             device=self.device,
-            verbose=False
+            verbose=True
         )
 
         test_size = int(len(full_dataset_test) * self.test_ratio)
