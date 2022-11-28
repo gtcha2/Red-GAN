@@ -62,7 +62,7 @@ for i, data_i in enumerate(dataloader):
                                    ('synthesized_image', generated[b])])
             visuals = visualizer.convert_visuals_to_numpy(visuals)
             image_numpy = visuals["synthesized_image"]
-            util.save_image(image_numpy, opt.results_dir + str(opt.scanner_class)
+            util.save_image(image_numpy, opt.results_dir + str(opt.condition_class)
                             + '/{}'.format(img_path[b].split('/')[-1]),
                             create_dir=True)
 
