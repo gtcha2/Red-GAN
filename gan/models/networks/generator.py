@@ -94,7 +94,7 @@ class SPADEGenerator(BaseNetwork):
             x = F.interpolate(seg, size=(self.sh, self.sw))
             x = self.fc_0(x)
 
-        y = self.embedding_0(scanner)
+        y = self.embedding_0(scanner-1)
         y = self.fc_1(y)
         y = y.view(-1, 1024, self.sh, self.sw)
         x = torch.cat([x, y], dim=1)
